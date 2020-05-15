@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import { GlobalStyles } from "./global";
 import "./App.css";
+import Toggle from "./components/Toggle/Toggle";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -22,7 +23,7 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <button onClick={toggleTheme}>Toggle theme</button>
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
         <h1>It's a light theme!</h1>
         <footer></footer>
       </>
