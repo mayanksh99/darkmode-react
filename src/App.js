@@ -7,7 +7,11 @@ import Toggle from "./components/Toggle/Toggle";
 import { useDarkMode } from "./hooks/useDarkMode";
 
 function App() {
-  const [theme, toggleTheme] = useDarkMode();
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+
+  if (!componentMounted) {
+    return <div />;
+  }
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
